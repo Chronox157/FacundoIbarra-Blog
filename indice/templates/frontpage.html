@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in posts%}
+        <div class="post-block">
+            <h2 class="subtitle">{{ post.titulo }}</h2>
+
+            <small>Subido el {{ post.fecha_add }}</small>
+
+            <p>{{ post.intro }}</p>
+            
+            <a href="{% url 'post_detail' post.slug %}">Leer</a>
+            
+            <br>
+        </div>
+    {% empty %}
+        <h2>Nada por aquí!</h2>
+    
+    {% endfor %}
+{% endblock %}
